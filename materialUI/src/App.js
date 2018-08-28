@@ -2,8 +2,9 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import Button from '@material-ui/core/Button';
-import SimpleCard from './Components/SimpleCard'
+//import SimpleCard from './Components/SimpleCard'
 import HttpContent from './Components/HttpContent'
+//import ProvaCard from './Components/ProvaCard'
 
 class App extends Component {
   render() {

@@ -1,10 +1,11 @@
 import React from 'react';
+import ProvaCard from './ProvaCard'
 const axios = require('axios');
 
 class HttpContent extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {content: null};
+        this.state = {content: {categoria: "Masculino"}};
     }
 
     componentDidMount() {
@@ -14,7 +15,7 @@ class HttpContent extends React.Component {
 
         axios({
             method:'get',
-            url:'http://localhost:3002',
+            url:'http://localhost:3005/api/provas',
             header: { 'Content-Type': 'application/json' ,
                 'X-Requested-With': 'XMLHttpRequest',
                 'mode': 'cors',
@@ -22,14 +23,19 @@ class HttpContent extends React.Component {
                 'Access-Control-Allow-Headers':'origin, content-type, accept, authorization'
             },
         })
-            .then((response) => console.log(response.data) /*this.setState({content: response.data})*/)
+            .then((response) => {
+                console.log(response.data)
+                this.setState({
+                    content: response.data
+                })
+            } /*this.setState({content: response.data})*/)
             .catch((error) => console.log(error));
     }
 
     render() {
         return (
             <div>
-                {this.state.content}
+                <ProvaCard prova={this.state.content[0]}/>
             </div>
         )
     }
