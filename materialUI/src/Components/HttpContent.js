@@ -5,7 +5,7 @@ const axios = require('axios');
 class HttpContent extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {content: {categoria: "Masculino"}};
+        this.state = {content: []}
     }
 
     componentDidMount() {
@@ -35,7 +35,7 @@ class HttpContent extends React.Component {
     render() {
         return (
             <div>
-                <ProvaCard prova={this.state.content[0]}/>
+                {this.state.content.map((prova) => <ProvaCard key={prova.id} prova={prova} />)}
             </div>
         )
     }
