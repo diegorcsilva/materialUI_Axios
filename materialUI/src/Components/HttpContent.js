@@ -15,7 +15,7 @@ class HttpContent extends React.Component {
 
         axios({
             method:'get',
-            url:'http://localhost:3005/api/provas',
+            url:'http://localhost:3005/api/provas?filter[include]=inscricoes',
             header: { 'Content-Type': 'application/json' ,
                 'X-Requested-With': 'XMLHttpRequest',
                 'mode': 'cors',
